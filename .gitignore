@@ -1,3 +1,9 @@
+# Custom
+e2e/reports/
+selenium-server.log
+
+
+# Boiler
 .DS_Store
 node_modules
 /dist
