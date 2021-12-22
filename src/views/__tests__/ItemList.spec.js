@@ -57,7 +57,7 @@ describe('ItemList.vue', () => {
     })
 
     const wrapper = createWrapper({ store })
-    const Items = wrapper.findAll(Item)
+    const Items = wrapper.findAllComponents(Item)
     expect(Items).toHaveLength(items.length)
     Items.wrappers.forEach((wrapper, i) => {
       expect(wrapper.vm.item).toBe(items[i])
@@ -208,8 +208,8 @@ describe('ItemList.vue', () => {
     }
     const wrapper = createWrapper({ mocks })
 
-    expect(wrapper.find(RouterLinkStub).props().to).toBe('/top/1')
-    expect(wrapper.find(RouterLinkStub).text()).toBe('< prev')
+    expect(wrapper.findComponent(RouterLinkStub).props().to).toBe('/top/1')
+    expect(wrapper.findComponent(RouterLinkStub).text()).toBe('< prev')
   })
 
   test('renders a RouterLink with the next page if one exists', () => {
@@ -224,8 +224,8 @@ describe('ItemList.vue', () => {
       }
     }
     const wrapper = createWrapper({ store, mocks })
-    expect(wrapper.find(RouterLinkStub).props().to).toBe('/top/2')
-    expect(wrapper.find(RouterLinkStub).text()).toBe('more >')
+    expect(wrapper.findComponent(RouterLinkStub).props().to).toBe('/top/2')
+    expect(wrapper.findComponent(RouterLinkStub).text()).toBe('more >')
   })
 
   test('renders a RouterLink with the next page when no page param exists', () => {
@@ -235,15 +235,15 @@ describe('ItemList.vue', () => {
       }
     })
     const wrapper = createWrapper({ store })
-    expect(wrapper.find(RouterLinkStub).props().to).toBe('/top/2')
-    expect(wrapper.find(RouterLinkStub).text()).toBe('more >')
+    expect(wrapper.findComponent(RouterLinkStub).props().to).toBe('/top/2')
+    expect(wrapper.findComponent(RouterLinkStub).text()).toBe('more >')
   })
 
   test('renders an <a> element without an href if there are no previous pages', () => {
     const wrapper = createWrapper()
 
-    expect(wrapper.find('a').attributes().href).toBe(undefined)
-    expect(wrapper.find('a').text()).toBe('< prev')
+    expect(wrapper.findComponent('a').attributes().href).toBe(undefined)
+    expect(wrapper.findComponent('a').text()).toBe('< prev')
   })
 
   test('renders an <a> element without an href if there are no next pages', () => {

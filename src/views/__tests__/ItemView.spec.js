@@ -66,7 +66,7 @@ describe('ItemView.vue', () => {
       kids: ['a1', 'a2']
     }
     await flushPromises()
-    expect(wrapper.findAll(Comment)).toHaveLength(2)
+    expect(wrapper.findAllComponents(Comment)).toHaveLength(2)
   })
 
   test('renders spinner if item has comments', () => {
@@ -78,7 +78,7 @@ describe('ItemView.vue', () => {
       }
     })
     const wrapper = createWrapper({ store })
-    expect(wrapper.find(Spinner).exists()).toBe(true)
+    expect(wrapper.findComponent(Spinner).exists()).toBe(true)
   })
 
   test('hides spinner when comments are loaded', async () => {
@@ -91,9 +91,9 @@ describe('ItemView.vue', () => {
       }
     })
     const wrapper = createWrapper({ store })
-    expect(wrapper.find(Spinner).exists()).toBe(true)
+    expect(wrapper.findComponent(Spinner).exists()).toBe(true)
     store.state.item = {}
     await flushPromises()
-    expect(wrapper.find(Spinner).exists()).toBe(false)
+    expect(wrapper.findComponent(Spinner).exists()).toBe(false)
   })
 })

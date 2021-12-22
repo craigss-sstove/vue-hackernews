@@ -3,7 +3,7 @@ module.exports = {
     browser
       .url('http://localhost:8080') // #A
       .waitForElementVisible('.news-item', 15000)
-      .click('.comments-link') // #C
+      .click('.comments-link a') // #C
       .assert.urlContains(`/item`) // #D
       .waitForElementVisible('.item-view', 15000) // #E
       .end()
