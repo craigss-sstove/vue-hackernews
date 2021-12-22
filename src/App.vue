@@ -20,6 +20,7 @@ import ItemList from './views/ItemList.vue'
 
 export default {
   components: {
+    // eslint-disable-next-line vue/no-unused-components
     ItemList
   }
 }

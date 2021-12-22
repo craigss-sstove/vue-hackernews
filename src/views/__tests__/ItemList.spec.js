@@ -234,8 +234,7 @@ describe('ItemList.vue', () => {
         maxPage: () => 3
       }
     })
-    const wrapper = createWrapper({ store
-    })
+    const wrapper = createWrapper({ store })
     expect(wrapper.find(RouterLinkStub).props().to).toBe('/top/2')
     expect(wrapper.find(RouterLinkStub).text()).toBe('more >')
   })

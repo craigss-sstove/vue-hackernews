@@ -3,8 +3,10 @@
 const fs = require('fs')
 const path = require('path')
 const express = require('express')
-var proxy = require('http-proxy-middleware')
+const { createProxyMiddleware } = require('http-proxy-middleware')
 const { createBundleRenderer } = require('vue-server-renderer')
+
+var proxy = createProxyMiddleware
 
 const devServerBaseURL = process.env.DEV_SERVER_BASE_URL || 'http://localhost'
 const devServerPort = process.env.DEV_SERVER_PORT || 8080
