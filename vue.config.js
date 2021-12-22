@@ -25,7 +25,7 @@ module.exports = {
         : new VueSSRClientPlugin()
     ],
     externals: TARGET_NODE ? nodeExternals({
-      whitelist: /\.css$/
+      allowlist: /\.css$/
     }) : undefined,
     output: {
       libraryTarget: TARGET_NODE
